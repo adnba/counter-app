@@ -8,22 +8,43 @@ class Counter extends Component {
   }
 
   increment = () => {
-    console.log("i am inside increment")
     this.setState({
       counter: this.state.counter + 1
     })
-    console.log("counter:", this.state.counter)
+  }
+
+  decrement = () => {
+    this.setState({
+      counter: this.state.counter - 1
+    })
+  }
+
+  styles = {
+    textAlign: "center"
   }
 
   render() {
-    console.log(this.hello)
-    console.log("i am in render")
-    console.log("state:", this.state)
     return (
-      <>
-        <div>{this.state.counter}</div>
-        <button onClick={this.increment}>increment</button>
-      </>
+      <div
+        style={{ height: "100vh" }}
+        className="d-flex flex-column justify-content-around align-items-center"
+      >
+        <h2>counter:</h2>
+        <div
+          style={{ fontSize: 30 }}
+          className="badge badge-secondary align-middle"
+        >
+          {this.state.counter}
+        </div>
+        <div style={this.styles}>
+          <button className="btn btn-primary mr-3" onClick={this.increment}>
+            increment
+          </button>
+          <button className="btn btn-danger" onClick={this.decrement}>
+            decrement
+          </button>
+        </div>
+      </div>
     )
   }
 }
